@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-// ─── Data Types ────────────────────────────────────────────────────────────────
+/* ─── Types ──────────────────────────────────────────────────────────────────── */
 interface InvoiceItem {
   id: string;
   sl: number;
@@ -28,79 +28,52 @@ interface CompanyInfo {
   email: string;
 }
 
-// ─── Furniture SVG Icon ─────────────────────────────────────────────────────────
+/* ─── Furniture SVG Icon ─────────────────────────────────────────────────────── */
 const FurnitureIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    version="1.1"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    width={120}
-    height={120}
-    x={0}
-    y={0}
     viewBox="0 0 64 64"
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    style={{ enableBackground: "new 0 0 512 512" } as any}
+    width={100}
+    height={100}
+    style={{ enableBackground: "new 0 0 512 512" } as React.CSSProperties}
     xmlSpace="preserve"
-    className=""
   >
     <g>
       <g data-name="Layer 48">
         <path
           d="M29.37 55h-1.74A3.64 3.64 0 0 1 24 51.37V40.63A3.64 3.64 0 0 1 27.63 37h1.74a3.7 3.7 0 0 1 .87.11A3.61 3.61 0 0 1 33 40.63v10.74A3.64 3.64 0 0 1 29.37 55zm-1.74-16A1.63 1.63 0 0 0 26 40.63v10.74A1.63 1.63 0 0 0 27.63 53h1.74A1.63 1.63 0 0 0 31 51.37V40.63a1.63 1.63 0 0 0-1.24-1.58 1.81 1.81 0 0 0-.39 0zM57.37 55h-1.74A3.64 3.64 0 0 1 52 51.37V40.63a3.61 3.61 0 0 1 2.76-3.52 3.7 3.7 0 0 1 .87-.11h1.74A3.64 3.64 0 0 1 61 40.63v10.74A3.64 3.64 0 0 1 57.37 55zm-1.74-16a1.81 1.81 0 0 0-.39 0A1.63 1.63 0 0 0 54 40.63v10.74A1.63 1.63 0 0 0 55.63 53h1.74A1.63 1.63 0 0 0 59 51.37V40.63A1.63 1.63 0 0 0 57.37 39zM22 50H3V38h19zM5 48h15v-8H5z"
-          fill="#000000"
-          opacity={1}
-          data-original="#000000"
-          className=""
+          fill="#000"
         />
         <path
           d="M20 48h2v7h-2zM3 48h2v7H3zM51 55H34a3 3 0 0 1-3-3v-6h23v6a3 3 0 0 1-3 3zm-18-7v4a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-4z"
-          fill="#000000"
-          opacity={1}
-          data-original="#000000"
-          className=""
+          fill="#000"
         />
         <path
           d="M54 48H31v-3a5 5 0 0 1 5-5h13a5 5 0 0 1 5 5zm-21-2h19v-1a3 3 0 0 0-3-3H36a3 3 0 0 0-3 3z"
-          fill="#000000"
-          opacity={1}
-          data-original="#000000"
-          className=""
+          fill="#000"
         />
         <path
           d="M54 45h-2a3 3 0 0 0-3-3H36a3 3 0 0 0-3 3h-2v-4.37a1.63 1.63 0 0 0-1.24-1.58l-.76-.18V31a7 7 0 0 1 7-7h13a7 7 0 0 1 7 7v7.87l-.76.18A1.63 1.63 0 0 0 54 40.63zm-18-5h13a5 5 0 0 1 3 1v-.37a3.6 3.6 0 0 1 2-3.24V31a5 5 0 0 0-5-5H36a5 5 0 0 0-5 5v6.39a3.6 3.6 0 0 1 2 3.24V41a5 5 0 0 1 3-1zM10 43h5v2h-5zM15.75 40h-6.5l-2.58-9h11.66zm-5-2h3.5l1.42-5H9.33z"
-          fill="#000000"
-          opacity={1}
-          data-original="#000000"
-          className=""
+          fill="#000"
         />
         <path
           d="M12.5 33a3.92 3.92 0 0 1-.76-.08A8.1 8.1 0 0 1 5 25v-1h1a7.94 7.94 0 0 1 5.1 1.82l.37.29v.47A6.09 6.09 0 0 0 12.5 30a6.1 6.1 0 0 0 1.07-3.41v-.47l.37-.29A7.94 7.94 0 0 1 19 24h1v1a8.06 8.06 0 0 1-6.86 8 3.23 3.23 0 0 1-.64 0zm3.05-5.95a8 8 0 0 1-1 3.41 6 6 0 0 0 3.41-4.41 5.87 5.87 0 0 0-2.41 1.01zm-8.49-1a6.15 6.15 0 0 0 3.41 4.41 8.09 8.09 0 0 1-1-3.41 5.87 5.87 0 0 0-2.41-.99z"
-          fill="#000000"
-          opacity={1}
-          data-original="#000000"
-          className=""
+          fill="#000"
         />
         <path
           d="m12.5 32.91-.71-.7c-.17-.18-.34-.36-.5-.55a8.09 8.09 0 0 1 .5-10.87l.71-.7.71.7a8 8 0 0 1 2.36 5.71v.05a8 8 0 0 1-1.84 5.08c-.18.22-.35.4-.52.58zm0-9.86a6.1 6.1 0 0 0 0 6.9 6.1 6.1 0 0 0 1.07-3.41h1-1a6 6 0 0 0-1.07-3.49zM24 20h2v24h-2z"
-          fill="#000000"
-          opacity={1}
-          data-original="#000000"
-          className=""
+          fill="#000"
         />
         <path
           d="M33.1 22H16.9l1.19-13h13.82zm-14-2h11.8l-.81-9H19.91z"
-          fill="#000000"
-          opacity={1}
-          data-original="#000000"
-          className=""
+          fill="#000"
         />
       </g>
     </g>
   </svg>
 );
 
-// ─── Main Invoice Component ───────────────────────────────────────────────────
+/* ─── Main Component ──────────────────────────────────────────────────────────── */
 export default function InvoicePage() {
   const [companyInfo, setCompanyInfo] = useState<CompanyInfo>({
     nameAr: "مفروشات الكنوز",
@@ -116,10 +89,7 @@ export default function InvoicePage() {
     email: "alkunooz2022@gmail.com",
   });
 
-  const [billTo, setBillTo] = useState({
-    name: "",
-    phone: "",
-  });
+  const [billTo, setBillTo] = useState({ name: "", phone: "" });
 
   const [invoiceDetails, setInvoiceDetails] = useState({
     no: "23-200-000055",
@@ -142,12 +112,8 @@ export default function InvoicePage() {
     },
   ]);
 
-  const [payment] = useState({
-    cash: 0,
-    amountDue: 0,
-    paid: 0,
-    due: 0,
-  });
+  /* Cash paid — editable so the "amount due" reflects partial payment */
+  const [cashPaid, setCashPaid] = useState(0);
 
   const [notesAr1, setNotesAr1] = useState(
     "شهور 3 بعد البضاعة عن مسؤول غير المحل",
@@ -156,34 +122,41 @@ export default function InvoicePage() {
     "الفاتورة كامل سداد قبل البضاعة بأخذ لايسمح المحل",
   );
 
+  /* ─── helpers ─────────────────────────────────────────────────────────── */
   const fmt = (n: number) =>
     n.toLocaleString("en-US", {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     });
 
+  const subtotal = items.reduce((s, i) => s + i.total, 0);
+  const tax = subtotal * (invoiceDetails.taxRate / 100);
+  const total = subtotal + tax;
+  const amountDue = Math.max(0, total - cashPaid);
+
+  /* ─── item helpers ───────────────────────────────────────────────────── */
   const addItem = () => {
-    const newSl = items.length + 1;
-    const newItem: InvoiceItem = {
-      id: Date.now().toString(),
-      sl: newSl,
-      name: "",
-      qty: 1,
-      unitPrice: 0,
-      tax: `${invoiceDetails.taxRate}%`,
-      discount: "0.00%",
-      total: 0,
-    };
-    setItems([...items, newItem]);
+    const sl = items.length + 1;
+    setItems([
+      ...items,
+      {
+        id: Date.now().toString(),
+        sl,
+        name: "",
+        qty: 1,
+        unitPrice: 0,
+        tax: `${invoiceDetails.taxRate}%`,
+        discount: "0.00%",
+        total: 0,
+      },
+    ]);
   };
 
   const removeItem = (id: string) => {
-    if (items.length > 1) {
-      const updatedItems = items
-        .filter((item) => item.id !== id)
-        .map((item, index) => ({ ...item, sl: index + 1 }));
-      setItems(updatedItems);
-    }
+    if (items.length === 1) return;
+    setItems(
+      items.filter((i) => i.id !== id).map((i, idx) => ({ ...i, sl: idx + 1 })),
+    );
   };
 
   const updateItem = (
@@ -191,36 +164,28 @@ export default function InvoicePage() {
     field: keyof InvoiceItem,
     value: string | number,
   ) => {
-    const updatedItems = items.map((item) => {
-      if (item.id === id) {
-        const updatedItem = { ...item, [field]: value };
+    setItems(
+      items.map((item) => {
+        if (item.id !== id) return item;
+        const updated = { ...item, [field]: value };
         if (field === "qty" || field === "unitPrice") {
-          const qty = Number(updatedItem.qty);
-          const price = Number(updatedItem.unitPrice);
-          updatedItem.total = qty * price;
+          updated.total = Number(updated.qty) * Number(updated.unitPrice);
         }
-        return updatedItem;
-      }
-      return item;
-    });
-    setItems(updatedItems);
+        return updated;
+      }),
+    );
   };
 
-  const subtotal = items.reduce((sum, item) => sum + item.total, 0);
-  const taxRate = invoiceDetails.taxRate / 100;
-  const tax = subtotal * taxRate;
-  const total = subtotal + tax;
-
-  const handlePrint = () => {
-    window.print();
-  };
+  /* ─── shared input class ─────────────────────────────────────────────── */
+  const editable =
+    "bg-transparent border-b border-dashed border-gray-300 focus:border-gray-600 focus:outline-none w-full";
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center py-8 px-4 font-sans">
-      {/* Buttons */}
+      {/* ── Toolbar (hidden on print) ─────────────────────────────────── */}
       <div className="mb-4 flex gap-2 no-print">
         <button
-          onClick={handlePrint}
+          onClick={() => window.print()}
           className="px-6 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-800 font-semibold shadow-md"
         >
           🖨️ Print
@@ -233,33 +198,35 @@ export default function InvoicePage() {
         </button>
       </div>
 
-      {/* Invoice Page */}
+      {/* ── Invoice Page ──────────────────────────────────────────────── */}
       <div className="bg-white w-full max-w-3xl shadow-2xl print:shadow-none">
-        {/* Header with Accent Color */}
+        {/* ── HEADER ──────────────────────────────────────────────────── */}
         <div className="border-b-2 border-gray-900 p-6">
-          <div className="flex items-start justify-between">
-            {/* Left: Arabic info */}
-            <div className="w-8/12 text-left flex-1" dir="rtl">
-              <input
-                type="text"
-                value="فاتورة ضريبية مبسطة-SIMPLIFIED TAX INVOICE"
-                readOnly
-                className="text-xl font-extrabold text-gray-900 leading-tight bg-transparent border-b border-dashed border-gray-300 focus:border-gray-600 focus:outline-none w-full text-left"
-              />
+          <div className="flex items-start justify-between gap-4">
+            {/* Arabic / bilingual block */}
+            <div className="flex-1" dir="rtl">
+              {/* Title — read-only, just styled */}
+              <p className="text-xl font-extrabold text-gray-900 leading-tight">
+                فاتورة ضريبية مبسطة-SIMPLIFIED TAX INVOICE
+              </p>
+
+              {/* Company name */}
               <input
                 type="text"
                 value={`${companyInfo.nameAr} - ${companyInfo.nameEn}`}
                 onChange={(e) => {
-                  const parts = e.target.value.split(" - ");
+                  const [ar, en] = e.target.value.split(" - ");
                   setCompanyInfo({
                     ...companyInfo,
-                    nameAr: parts[0] || "",
-                    nameEn: parts[1] || "",
+                    nameAr: ar ?? "",
+                    nameEn: en ?? "",
                   });
                 }}
-                className="text-base font-bold text-slate-800 mt-1 bg-transparent border-b border-dashed border-gray-300 focus:border-gray-600 focus:outline-none w-full text-left"
+                className={`text-base font-bold text-slate-800 mt-1 ${editable} text-left`}
               />
-              <div className="mt-2 text-xs text-slate-700 leading-5">
+
+              {/* Arabic address lines */}
+              <div className="mt-2 text-xs text-slate-700 leading-5 space-y-0.5">
                 <input
                   type="text"
                   value={companyInfo.addressAr}
@@ -269,7 +236,7 @@ export default function InvoicePage() {
                       addressAr: e.target.value,
                     })
                   }
-                  className="bg-transparent border-b border-dashed border-gray-300 focus:border-gray-600 focus:outline-none w-full mb-1 text-left"
+                  className={`${editable} text-left`}
                 />
                 <input
                   type="text"
@@ -277,7 +244,7 @@ export default function InvoicePage() {
                   onChange={(e) =>
                     setCompanyInfo({ ...companyInfo, crAr: e.target.value })
                   }
-                  className="bg-transparent border-b border-dashed border-gray-300 focus:border-gray-600 focus:outline-none w-full mb-1 text-left"
+                  className={`${editable} text-left`}
                 />
                 <input
                   type="text"
@@ -285,40 +252,40 @@ export default function InvoicePage() {
                   onChange={(e) =>
                     setCompanyInfo({ ...companyInfo, poBoxAr: e.target.value })
                   }
-                  className="bg-transparent border-b border-dashed border-gray-300 focus:border-gray-600 focus:outline-none w-full text-left"
+                  className={`${editable} text-left`}
                 />
               </div>
             </div>
 
-            {/* Right: Logo */}
-            <div className="w-4/12 flex justify-end">
-              <div className="border-2 border-gray-900 p-2 mr-4 bg-white shadow-md">
-                <FurnitureIcon />
-              </div>
+            {/* Logo */}
+            <div className="border-2 border-gray-900 p-2 bg-white shadow-md shrink-0">
+              <FurnitureIcon />
             </div>
           </div>
 
-          {/* English address block */}
-          <div className="mt-4 text-xs text-slate-700 leading-5">
+          {/* English address */}
+          <div className="mt-4 text-xs text-slate-700 leading-5 space-y-0.5">
             <input
               type="text"
               value={companyInfo.addressEn}
               onChange={(e) =>
                 setCompanyInfo({ ...companyInfo, addressEn: e.target.value })
               }
-              className="bg-transparent border-b border-dashed border-gray-300 focus:border-gray-600 focus:outline-none w-full mb-1"
+              className={editable}
             />
-            <div className="flex gap-4">
-              <span className="font-semibold text-slate-800">C.R </span>
+            <div className="flex gap-3 items-center">
+              <span className="font-semibold text-slate-800 shrink-0">C.R</span>
               <input
                 type="text"
                 value={companyInfo.cr}
                 onChange={(e) =>
                   setCompanyInfo({ ...companyInfo, cr: e.target.value })
                 }
-                className="bg-transparent border-b border-dashed border-gray-300 focus:border-gray-600 focus:outline-none w-24"
+                className="bg-transparent border-b border-dashed border-gray-300 focus:border-gray-600 focus:outline-none w-28"
               />
-              <span className="font-semibold text-slate-800">P.O.Box: </span>
+              <span className="font-semibold text-slate-800 shrink-0">
+                P.O.Box:
+              </span>
               <input
                 type="text"
                 value={companyInfo.poBox}
@@ -331,42 +298,48 @@ export default function InvoicePage() {
           </div>
 
           {/* Tax / Phone / Email */}
-          <div className="mt-3 text-xs text-slate-700 grid grid-cols-[auto_1fr] gap-x-4 gap-y-0.5">
-            <span className="font-semibold text-gray-900">Tax No.:</span>
+          <div className="mt-3 text-xs text-slate-700 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
+            <span className="font-semibold text-gray-900 self-center">
+              Tax No.:
+            </span>
             <input
               type="text"
               value={companyInfo.taxNo}
               onChange={(e) =>
                 setCompanyInfo({ ...companyInfo, taxNo: e.target.value })
               }
-              className="bg-transparent border-b border-dashed border-gray-300 focus:border-gray-600 focus:outline-none w-full font-medium"
+              className={`${editable} font-medium`}
             />
-            <span className="font-semibold text-gray-900">Phone:</span>
+            <span className="font-semibold text-gray-900 self-center">
+              Phone:
+            </span>
             <input
               type="text"
               value={companyInfo.phones}
               onChange={(e) =>
                 setCompanyInfo({ ...companyInfo, phones: e.target.value })
               }
-              className="bg-transparent border-b border-dashed border-gray-300 focus:border-gray-600 focus:outline-none w-full font-medium"
+              className={`${editable} font-medium`}
             />
-            <span className="font-semibold text-gray-900">Email:</span>
+            <span className="font-semibold text-gray-900 self-center">
+              Email:
+            </span>
             <input
               type="text"
               value={companyInfo.email}
               onChange={(e) =>
                 setCompanyInfo({ ...companyInfo, email: e.target.value })
               }
-              className="bg-transparent border-b border-dashed border-gray-300 focus:border-gray-600 focus:outline-none w-full font-medium"
+              className={`${editable} font-medium`}
             />
           </div>
         </div>
 
-        {/* Bill To + Invoice Meta */}
+        {/* ── BILL TO + INVOICE META ───────────────────────────────────── */}
         <div className="border-b-2 border-slate-300 px-6 py-4 flex justify-between gap-8 bg-slate-50/50">
           {/* Bill To */}
           <div className="text-xs text-slate-700">
-            <p className="font-bold text-sm text-gray-900 mb-1">Bill to</p>
+            <p className="font-bold text-sm text-gray-900 mb-2">Bill to</p>
             <input
               type="text"
               value={billTo.name}
@@ -374,23 +347,23 @@ export default function InvoicePage() {
               placeholder="Customer Name"
               className="bg-transparent border-b border-slate-400 focus:border-gray-600 focus:outline-none w-full mb-1"
             />
-            <div>
-              Phone:{" "}
+            <div className="flex items-center gap-1">
+              <span>Phone:</span>
               <input
                 type="text"
                 value={billTo.phone}
                 onChange={(e) =>
                   setBillTo({ ...billTo, phone: e.target.value })
                 }
-                placeholder="Phone Number"
-                className="bg-transparent border-b border-slate-400 focus:border-gray-600 focus:outline-none w-32"
+                placeholder="0500000000"
+                className="bg-transparent border-b border-slate-400 focus:border-gray-600 focus:outline-none w-36"
               />
             </div>
           </div>
 
-          {/* Invoice details */}
-          <div className="text-xs text-slate-700 grid grid-cols-[auto_1fr] gap-x-6 gap-y-0.5 text-right">
-            <span className="font-semibold text-left text-gray-900">
+          {/* Invoice meta */}
+          <div className="text-xs text-slate-700 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1">
+            <span className="font-semibold text-gray-900 self-center">
               Invoice No.:
             </span>
             <input
@@ -401,7 +374,10 @@ export default function InvoicePage() {
               }
               className="bg-transparent border-b border-slate-400 focus:border-gray-600 focus:outline-none text-right font-medium"
             />
-            <span className="font-semibold text-left text-gray-900">Date:</span>
+
+            <span className="font-semibold text-gray-900 self-center">
+              Date:
+            </span>
             <input
               type="date"
               value={invoiceDetails.date}
@@ -410,7 +386,8 @@ export default function InvoicePage() {
               }
               className="bg-transparent border-b border-slate-400 focus:border-gray-600 focus:outline-none text-right"
             />
-            <span className="font-semibold text-left text-gray-900">
+
+            <span className="font-semibold text-gray-900 self-center">
               Due date:
             </span>
             <input
@@ -424,7 +401,8 @@ export default function InvoicePage() {
               }
               className="bg-transparent border-b border-slate-400 focus:border-gray-600 focus:outline-none text-right"
             />
-            <span className="font-semibold text-left text-gray-900">
+
+            <span className="font-semibold text-gray-900 self-center">
               Payment status:
             </span>
             <input
@@ -441,45 +419,46 @@ export default function InvoicePage() {
           </div>
         </div>
 
-        {/* Items Table */}
+        {/* ── ITEMS TABLE ──────────────────────────────────────────────── */}
         <div className="px-6 py-4">
           <table className="w-full text-xs border-collapse">
             <thead>
-              <tr className="bg-white text-gray-900">
-                <th className="border border-gray-800 px-2 py-2 text-center font-bold w-8">
+              <tr className="bg-gray-50 border border-gray-400">
+                <th className="border border-gray-300 px-2 py-2 text-center font-semibold text-gray-700 w-8">
                   #
                 </th>
-                <th className="border border-gray-800 px-3 py-2 text-center font-bold">
+                <th className="border border-gray-300 px-3 py-2 text-center font-semibold text-gray-700">
                   Item
                 </th>
-                <th className="border border-gray-800 px-2 py-2 text-center font-bold">
+                <th className="border border-gray-300 px-2 py-2 text-center font-semibold text-gray-700 w-16">
                   Quantity
                 </th>
-                <th className="border border-gray-800 px-2 py-2 text-center font-bold">
+                <th className="border border-gray-300 px-2 py-2 text-center font-semibold text-gray-700 w-20">
                   Unit Price
                 </th>
-                <th className="border border-gray-800 px-2 py-2 text-center font-bold">
+                <th className="border border-gray-300 px-2 py-2 text-center font-semibold text-gray-700 w-12">
                   Tax
                 </th>
-                <th className="border border-gray-800 px-2 py-2 text-center font-bold">
+                <th className="border border-gray-300 px-2 py-2 text-center font-semibold text-gray-700 w-16">
                   Discount
                 </th>
-                <th className="border border-gray-800 px-2 py-2 text-center font-bold">
+                <th className="border border-gray-300 px-2 py-2 text-center font-semibold text-gray-700 w-20">
                   Total
                 </th>
-                <th className="py-2 px-1 w-6 text-center no-print"></th>
+                {/* Delete column — hidden in print via CSS */}
+                <th
+                  className="border border-gray-300 w-6 no-print"
+                  aria-hidden
+                />
               </tr>
             </thead>
             <tbody>
               {items.map((item) => (
-                <tr
-                  key={item.id}
-                  className="border border-slate-400 even:bg-slate-50"
-                >
-                  <td className="border border-slate-300 px-2 py-2 text-center text-slate-600 font-medium">
+                <tr key={item.id} className="border border-gray-300">
+                  <td className="border border-gray-300 px-2 py-2 text-center text-gray-600">
                     {item.sl}
                   </td>
-                  <td className="border border-slate-300 px-3 py-2">
+                  <td className="border border-gray-300 px-3 py-2">
                     <input
                       type="text"
                       value={item.name}
@@ -487,10 +466,10 @@ export default function InvoicePage() {
                         updateItem(item.id, "name", e.target.value)
                       }
                       placeholder="Item Name"
-                      className="w-full bg-transparent focus:outline-none focus:bg-amber-100 font-medium text-slate-800"
+                      className="w-full bg-transparent focus:outline-none focus:bg-amber-50 font-medium text-gray-800"
                     />
                   </td>
-                  <td className="border border-slate-300 px-2 py-2">
+                  <td className="border border-gray-300 px-2 py-2">
                     <input
                       type="number"
                       value={item.qty || ""}
@@ -501,11 +480,11 @@ export default function InvoicePage() {
                           parseFloat(e.target.value) || 0,
                         )
                       }
-                      className="w-full bg-transparent focus:outline-none focus:bg-amber-100 text-center font-medium"
                       min="0"
+                      className="w-full bg-transparent focus:outline-none focus:bg-amber-50 text-center font-medium"
                     />
                   </td>
-                  <td className="border border-slate-300 px-2 py-2">
+                  <td className="border border-gray-300 px-2 py-2">
                     <input
                       type="number"
                       value={item.unitPrice || ""}
@@ -516,31 +495,31 @@ export default function InvoicePage() {
                           parseFloat(e.target.value) || 0,
                         )
                       }
-                      className="w-full bg-transparent focus:outline-none focus:bg-amber-100 text-right font-medium"
                       min="0"
                       step="0.01"
+                      className="w-full bg-transparent focus:outline-none focus:bg-amber-50 text-right font-medium"
                     />
                   </td>
-                  <td className="border border-slate-300 px-2 py-2 text-center text-slate-700">
+                  <td className="border border-gray-300 px-2 py-2 text-center text-gray-700">
                     {invoiceDetails.taxRate}%
                   </td>
-                  <td className="border border-slate-300 px-2 py-2 text-center text-slate-700">
+                  <td className="border border-gray-300 px-2 py-2 text-center text-gray-700">
                     {item.discount}
                   </td>
-                  <td className="border border-slate-300 px-2 py-2 text-right text-gray-900 font-bold">
+                  <td className="border border-gray-300 px-2 py-2 text-right text-gray-800 font-medium">
                     {fmt(item.total)}
                   </td>
-                  <td className="py-2 px-1 text-center no-print">
-                    <button
-                      onClick={() => removeItem(item.id)}
-                      disabled={items.length === 1}
-                      className={`text-red-600 hover:text-red-800 font-bold disabled:text-gray-300 disabled:cursor-not-allowed text-xs ${
-                        items.length === 1 ? "hidden" : ""
-                      }`}
-                      title="Remove item"
-                    >
-                      ✕
-                    </button>
+                  {/* Delete button — hidden in print via CSS */}
+                  <td className="border border-gray-300 px-1 py-2 text-center no-print">
+                    {items.length > 1 && (
+                      <button
+                        onClick={() => removeItem(item.id)}
+                        className="text-red-500 hover:text-red-700 font-bold text-xs leading-none"
+                        title="Remove"
+                      >
+                        ✕
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -548,19 +527,19 @@ export default function InvoicePage() {
           </table>
         </div>
 
-        {/* Totals */}
+        {/* ── TOTALS ───────────────────────────────────────────────────── */}
         <div className="px-6 pb-4 flex justify-end">
-          <div className="w-64 text-xs border-2 border-gray-900">
-            <div className="flex justify-between px-3 py-2 border-b border-slate-300 bg-slate-50">
-              <span className="font-semibold text-slate-700">Subtotal</span>
-              <span className="font-semibold text-slate-900">
+          <div className="w-64 text-xs border border-gray-300">
+            <div className="flex justify-between px-3 py-2 border-b border-gray-200">
+              <span className="font-semibold text-gray-700">Subtotal</span>
+              <span className="font-semibold text-gray-900">
                 SAR {fmt(subtotal)}
               </span>
             </div>
-            <div className="flex justify-between px-3 py-2 border-b border-slate-300 bg-slate-50">
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-slate-700">TAX</span>
-                <span className="text-slate-500">(</span>
+            <div className="flex justify-between items-center px-3 py-2 border-b border-gray-200">
+              <div className="flex items-center gap-1">
+                <span className="font-semibold text-gray-700">TAX</span>
+                <span className="text-gray-500">(</span>
                 <input
                   type="number"
                   value={invoiceDetails.taxRate}
@@ -570,116 +549,90 @@ export default function InvoicePage() {
                       taxRate: parseFloat(e.target.value) || 0,
                     })
                   }
-                  className="w-12 bg-transparent border-b border-gray-400 focus:border-gray-600 focus:outline-none text-center font-medium text-gray-900"
                   min="0"
                   max="100"
                   step="0.1"
+                  className="w-10 bg-transparent border-b border-gray-400 focus:border-gray-600 focus:outline-none text-center font-medium text-gray-900 no-print"
                 />
-                <span className="text-slate-500">%)</span>
+                {/* Print-only static tax rate */}
+                <span className="hidden print:inline font-medium text-gray-900">
+                  {invoiceDetails.taxRate}
+                </span>
+                <span className="text-gray-500">%)</span>
               </div>
-              <span className="font-semibold text-slate-900">
+              <span className="font-semibold text-gray-900">
                 SAR {fmt(tax)}
               </span>
             </div>
-            <div className="flex justify-between px-3 py-2 bg-white">
-              <span className="font-bold text-white">Total</span>
-              <span className="font-bold text-white">SAR {fmt(total)}</span>
+            <div className="flex justify-between px-3 py-2 bg-gray-50">
+              <span className="font-bold text-gray-900">Total</span>
+              <span className="font-bold text-gray-900">SAR {fmt(total)}</span>
             </div>
           </div>
         </div>
 
-        {/* Payment Method */}
+        {/* ── PAYMENT METHOD ───────────────────────────────────────────── */}
         <div className="px-6 pb-4 flex justify-end">
-          <div className="w-64 text-xs border-2 border-slate-400">
-            <div className="px-3 py-2 border-b border-slate-300 bg-slate-50">
-              <p className="font-semibold text-slate-800 mb-1">
-                Payment method:
-              </p>
+          <div className="w-64 text-xs border border-gray-300">
+            {/* Header */}
+            <div className="px-3 py-2 border-b border-gray-200">
+              <p className="font-semibold text-gray-800">Payment method:</p>
             </div>
-            <div className="flex justify-between px-3 py-2 border-b border-slate-200">
-              <span className="text-slate-700">
+
+            {/* Cash */}
+            <div className="flex justify-between items-center px-3 py-2 border-b border-gray-200">
+              <span className="text-gray-700">
                 Cash - <span dir="rtl">نقدي</span>
               </span>
-              <span className="text-slate-900 font-medium">
-                SAR {fmt(payment.cash)}
-              </span>
+              <div className="flex items-center gap-1">
+                <span className="text-gray-500 text-[10px]">SAR</span>
+                {/* Editable on screen */}
+                <input
+                  type="number"
+                  value={cashPaid || ""}
+                  onChange={(e) => setCashPaid(parseFloat(e.target.value) || 0)}
+                  min="0"
+                  step="0.01"
+                  className="w-20 bg-transparent border-b border-gray-400 focus:border-gray-600 focus:outline-none text-right font-medium text-gray-800 no-print"
+                />
+                {/* Print only */}
+                <span className="hidden print:inline font-medium text-gray-800">
+                  {fmt(cashPaid)}
+                </span>
+              </div>
             </div>
-            <div className="flex justify-between px-3 py-2 border-b border-slate-200">
-              <span className="text-slate-700">
+
+            {/* Amount Due label */}
+            <div className="flex justify-between px-3 py-2 border-b border-gray-200">
+              <span className="text-gray-700">
                 Amount Due -{" "}
-                <span dir="rtl" className="text-slate-600">
+                <span dir="rtl" className="text-gray-600">
                   المبلغ المستحق
                 </span>
               </span>
-              <span className="text-slate-900 font-medium">
-                SAR {fmt(payment.amountDue)}
+              <span className="text-gray-800 font-medium">
+                SAR {fmt(total)}
               </span>
             </div>
-            <div className="flex justify-between px-3 py-2 border-b border-slate-200">
-              <span className="font-semibold text-slate-800">Paid amount:</span>
+
+            {/* Paid amount */}
+            <div className="flex justify-between px-3 py-2 border-b border-gray-200">
+              <span className="font-semibold text-gray-800">Paid amount:</span>
               <span className="font-semibold text-gray-900">
-                SAR {fmt(payment.paid)}
+                SAR {fmt(cashPaid)}
               </span>
             </div>
-            <div className="flex justify-between px-3 py-2 bg-gray-100">
+
+            {/* Amount due (remaining) */}
+            <div className="flex justify-between px-3 py-2 bg-gray-50">
               <span className="font-bold text-gray-900">Amount due:</span>
               <span className="font-bold text-gray-900">
-                SAR {fmt(payment.due)}
+                SAR {fmt(amountDue)}
               </span>
             </div>
           </div>
         </div>
       </div>
-
-      <style jsx global>{`
-        @media print {
-          @page {
-            size: A4;
-            margin: 0mm;
-          }
-
-          * {
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
-          }
-
-          body {
-            background: white !important;
-          }
-
-          .no-print {
-            display: none !important;
-          }
-
-          input {
-            border: none !important;
-            background: transparent !important;
-          }
-
-          input:focus {
-            outline: none !important;
-          }
-
-          /* Ensure table borders are visible */
-          table {
-            border-collapse: collapse !important;
-          }
-
-          table td,
-          table th {
-            border: 1px solid #000 !important;
-            padding: 2px 4px !important;
-          }
-
-          #invoice-content {
-            box-shadow: none !important;
-          }
-
-          .bg-white {
-            box-shadow: none !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }

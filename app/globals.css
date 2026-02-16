@@ -12,15 +12,347 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ─── Hide number spinners globally (screen + print) ─────────────────────────
+   WebKit / Blink: Chrome, Edge, Safari                                        */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  width: 0;
+  height: 0;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ─── Hide date-picker icon globally (screen + print) ────────────────────────
+   WebKit / Blink                                                               */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-clear-button {
+  display: none;
+  visibility: hidden;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: transparent;
+  color: transparent;
+}
+
+/* Additional date input controls */
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
+
+/* ─── Table Striped Rows (for screen view) ──────────────────────────────────── */
+tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+  /* gray-50 */
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+  /* white */
+}
+
+/* ─── Print Styles ─────────────────────────────────────────────────────────── */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  html,
+  body {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* ── Hide non-printable elements ── */
+  .no-print,
+  .no-print * {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* ── Remove screen-only shadows ── */
+  .shadow-2xl,
+  .shadow-md,
+  .shadow-lg,
+  .shadow-sm,
+  .shadow {
+    box-shadow: none !important;
+  }
+
+  /* ── Page container — fill the page ── */
+  .min-h-screen {
+    min-height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+  }
+
+  .max-w-3xl {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* ── Inputs: strip all interactive chrome ── */
+  input,
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  input[type="datetime-local"] {
+    border: none !important;
+    border-bottom: none !important;
+    background: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    padding: 0 !important;
+  }
+
+  /* ── Number spinners — WebKit / Blink (belt-and-suspenders over global rule) ── */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    display: none !important;
+    visibility: hidden !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield !important;
+  }
+
+  /* ── Date picker icon & inner controls — WebKit / Blink ── */
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="date"]::-webkit-inner-spin-button,
+  input[type="date"]::-webkit-clear-button,
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+  input[type="datetime-local"]::-webkit-inner-spin-button,
+  input[type="datetime-local"]::-webkit-clear-button {
+    display: none !important;
+    visibility: hidden !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    background: transparent !important;
+    color: transparent !important;
+  }
+
+  /* Additional date input controls */
+  input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    padding: 0 !important;
+  }
+
+  /* Remove dashed underlines on inputs */
+  .border-dashed {
+    border: none !important;
+  }
+
+  /* ── Tables: force solid borders everywhere ── */
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    border: 2px solid #000 !important;
+  }
+
+  table *,
+  table tr,
+  table th,
+  table td,
+  thead,
+  tbody,
+  thead tr,
+  tbody tr {
+    border: 1px solid #000 !important;
+  }
+
+  th,
+  td {
+    border: 1px solid #000 !important;
+    border-style: solid !important;
+    border-width: 1px !important;
+    padding: 6px 8px !important;
+  }
+
+  thead tr {
+    background-color: #e5e7eb !important;
+    /* gray-200 */
+    border: 1px solid #000 !important;
+  }
+
+  thead tr th {
+    border: 1px solid #000 !important;
+    border-width: 1px !important;
+    background-color: #e5e7eb !important;
+  }
+
+  tbody tr {
+    border: 1px solid #000 !important;
+    background-color: #ffffff !important;
+  }
+
+  /* Striped rows - alternating colors */
+  tbody tr:nth-child(even) {
+    background-color: #f9fafb !important;
+    /* gray-50 */
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #ffffff !important;
+    /* white */
+  }
+
+  tbody tr td {
+    border: 1px solid #000 !important;
+    border-width: 1px !important;
+  }
+
+  /* Ensure all table cells have visible borders - maximum specificity */
+  table th,
+  table td,
+  table thead th,
+  table tbody td,
+  table tbody tr td,
+  table thead tr th {
+    border-top: 1px solid #000 !important;
+    border-bottom: 1px solid #000 !important;
+    border-left: 1px solid #000 !important;
+    border-right: 1px solid #000 !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: #000 !important;
+  }
+
+  /* Override any tailwind border classes */
+  .border-gray-300,
+  .border-gray-400,
+  table .border-gray-300,
+  table .border-gray-400,
+  table th.border-gray-300,
+  table td.border-gray-300 {
+    border-color: #000 !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+  }
+
+  /* ── Preserve background fills ── */
+  .bg-gray-50 {
+    background-color: #f9fafb !important;
+  }
+
+  .bg-slate-50\/50 {
+    background-color: #f8fafc !important;
+  }
+
+  /* ── Borders: keep them visible ── */
+  .border,
+  .border-b,
+  .border-b-2,
+  .border-t,
+  .border-r,
+  .border-l {
+    border-style: solid !important;
+  }
+
+  .border-gray-300 {
+    border-color: #d1d5db !important;
+  }
+
+  .border-gray-400 {
+    border-color: #9ca3af !important;
+  }
+
+  .border-gray-900,
+  .border-b-2.border-gray-900 {
+    border-color: #111827 !important;
+  }
+
+  .border-slate-300 {
+    border-color: #cbd5e1 !important;
+  }
+
+  /* ── Totals box ── */
+  .border.border-gray-300 {
+    border: 1px solid #d1d5db !important;
+  }
+
+  /* ── Typography colors ── */
+  .text-gray-900 {
+    color: #111827 !important;
+  }
+
+  .text-gray-800 {
+    color: #1f2937 !important;
+  }
+
+  .text-gray-700 {
+    color: #374151 !important;
+  }
+
+  .text-gray-600 {
+    color: #4b5563 !important;
+  }
+
+  .text-slate-800 {
+    color: #1e293b !important;
+  }
+
+  .text-slate-700 {
+    color: #334155 !important;
+  }
+
+  /* ── Remove top padding so header sits flush ── */
+  .py-8 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* ── Keep the delete-row column completely gone ── */
+  th:last-child.no-print,
+  td:last-child.no-print {
+    display: none !important;
+    width: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
 }
