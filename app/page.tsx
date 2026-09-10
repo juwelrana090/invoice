@@ -76,17 +76,17 @@ const FurnitureIcon = () => (
 /* ─── Main Component ──────────────────────────────────────────────────────────── */
 export default function InvoicePage() {
   const [companyInfo, setCompanyInfo] = useState<CompanyInfo>({
-    nameAr: "مفروشات الكنوز",
-    nameEn: "AL-KUNOOZ FURNITURE",
-    addressAr: "حفر الباطن - الخالدية - شارع الملك سعود",
-    addressEn: "Hafr Al Baten-Al-Khalidiya-King Saud Street.",
-    crAr: "سجل تجاري : ٢٥١١١٠١٢٨٠",
-    cr: "2511101280",
-    poBoxAr: "رمز بريدي: ٣٩٩٥٣",
-    poBox: "39953",
-    taxNo: "310049782700003",
-    phones: "0508197124 / 0533556473 / 0553479050",
-    email: "alkunooz2022@gmail.com",
+    nameAr: "الهنا ",
+    nameEn: "AL-HANA ",
+    addressAr: "حفر الباطن - عيادة الخالدية سلمان.",
+    addressEn: "Hafr Al-Batin - Khalidiya Clinic Salman.",
+    crAr: "",
+    cr: "",
+    poBoxAr: "",
+    poBox: "",
+    taxNo: "",
+    phones: "0552725934 - 0558943767",
+    email: "alhana@gmail.com",
   });
 
   const [billTo, setBillTo] = useState({ name: "", phone: "" });
